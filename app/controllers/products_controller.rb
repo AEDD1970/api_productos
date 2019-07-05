@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
+  before_action :product_uniquess, only: [:show_uniquess]
 
   # GET /products
   def index
-    @products = Product.all
+    @products = Product.all.select(:id, :producname, :price, :description)
 
     render json: @products
   end
@@ -12,7 +13,9 @@ class ProductsController < ApplicationController
   def show
     render json: @product
   end
-
+  def show_uniquess
+    render json: @product
+  end
   # POST /products
   def create
     @product = Product.new(product_params)
@@ -39,13 +42,19 @@ class ProductsController < ApplicationController
     @product.destroy
     render json: @product
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
     end
+   
+    def product_uniquess
+      @product = Product.find_by(producname: params[:producname])
 
+    end
+  
     # Only allow a trusted parameter "white list" through.
     def product_params
       params.permit(:producname, :price, :description)
