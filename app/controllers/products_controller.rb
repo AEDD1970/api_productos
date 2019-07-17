@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :update, :destroy]
-  before_action :product_uniquess, only: [:show_uniquess]
+  skip_before_action :set_product, only: [:show, :update, :destroy]
+  skip_before_action :product_uniquess, only: [:show_uniquess]
 
   # GET /products
   def index
     @products = Product.all.select(:id, :producname, :price, :description)
+ #name of array data   
 data = [
   data: @products.as_json
 
