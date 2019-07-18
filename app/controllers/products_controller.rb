@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
-  skip_load_and_authorize_resource :only => [:index, :show, :update, :destroy, :create]
+  #skip_load_and_authorize_resource :only => [:index, :show, :update, :destroy, :create]
   skip_before_action :product_uniquess, only: [:show_uniquess]
 
   # GET /products
