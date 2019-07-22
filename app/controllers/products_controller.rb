@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all.select(:id, :producname, :price, :description)
+    @products = Product.all.select(:id, :producname, :price, :description, :quantiyy)
  #name of array data   
 data = [
   data: @products.as_json
@@ -67,6 +67,6 @@ render json: data
   
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.permit(:producname, :price, :description)
+      params.permit(:producname, :price, :description, :quantiyy)
     end
 end
