@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all.select(:id, :producname, :price, :description, :quantiyy)
+    @products = Product.all.select(:id, :producname, :price, :description, :quantiyy, :image)
  #name of array data   
 data = [
   data: @products.as_json
