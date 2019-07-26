@@ -67,6 +67,6 @@ render json: data
   
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.permit(:producname, :price, :description, :quantiyy)
+      params.permit(:producname, :price, :description, :quantiyy, :image)
     end
 end

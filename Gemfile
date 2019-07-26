@@ -9,7 +9,11 @@ gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-# rack-cors
+#images of 64.base
+gem 'carrierwave-base64'
+#gem carrierwave (imagenes)
+gem 'carrierwave'
+#gem permision services post/get/update/delete/create
 gem 'rack-cors'
 gem 'bundler',  '>= 2.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
