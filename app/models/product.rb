@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    mount_base64_uploader  :image, ImageUploader
+    mount_uploader  :image, ImageUploader
     validates :producname, presence:true
     validates :producname, uniqueness:true
    
