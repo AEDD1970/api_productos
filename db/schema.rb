@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_204955) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantiyy"
     t.string "image"
     t.index ["type_product_id"], name: "index_products_on_type_product_id"
   end
