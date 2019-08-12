@@ -4,7 +4,6 @@ class AddImageProducts < ActiveRecord::Migration[5.2]
   end
 
   def down
-    remove_column :products, :image
   end
 
 end

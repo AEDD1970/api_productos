@@ -1,5 +1,7 @@
 class AddQuantityToProducts < ActiveRecord::Migration[5.2]
-  def change
-    add_column :products, :quantiyy, :integer
+  def up
+#    add_column :products, :quantiyy, :integer
+  end
+  def down
   end
 end
