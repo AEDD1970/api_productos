@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
   #skip_load_and_authorize_resource :only => [:index, :show, :update, :destroy, :create]
   before_action :product_uniquess, only: [:show_uniquess]
+  before_action :product_collar, only: [:show_typec]
 
   # GET /products
   def index
@@ -25,6 +26,12 @@ render json: data
   def show_uniquess
     render json: @product
   end
+     #pass type producto collar
+
+     def show_typec
+      render json: @product
+    end
+
   # POST /products
   def create
     @product = Product.new(product_params)
@@ -58,13 +65,16 @@ render json: data
     def set_product
       @product = Product.find(params[:id])
     end
-   # pass unique product
+    # pass unique product
     def product_uniquess
       @product = Product.find_by(producname: params[:producname])
 
     end
-  
-  
+    # pass product collar
+    def product_collar
+      @product = Product.find_by(type_product_id: params[:type_product_id])
+    end
+
     # Only allow a trusted parameter "white list" through.
     def product_params
       params.permit(:producname, :type_product_id, :price, :description, :quantiyy, :image)
