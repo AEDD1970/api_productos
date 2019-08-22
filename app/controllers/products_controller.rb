@@ -72,7 +72,7 @@ render json: data
     end
     # pass product collar
     def product_collar
-      @product = Product.find_by(type_product_id: params[:type_product_id])
+      @product = Product.where(type_product_id: params[:type_product_id])
     end
 
     # Only allow a trusted parameter "white list" through.
