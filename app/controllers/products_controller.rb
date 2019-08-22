@@ -6,31 +6,27 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
+    
     @products = Product.all.select(:id, :producname, :type_product_id,:price, :description, :quantiyy, :image)
- #name of array data   
-data = [
-  data: @products.as_json
-
-]
-render json: data
-
+    #name of array data   
+    render json: {data: @products.as_json}
   end
 
   # GET /products/1
   def show
     render json: @product
 
-    #GET /prdoducts/nameproduct
   end
-     # pass unique product
+     
+    #GET /prdoducts/nameproduct
   def show_uniquess
     render json: @product
   end
      #pass type producto collar
 
-     def show_typec
-      render json: @product
-    end
+  def show_typec
+    render json: @product
+  end
 
   # POST /products
   def create
@@ -61,22 +57,22 @@ render json: data
   
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
-    # pass unique product
-    def product_uniquess
-      @product = Product.find_by(producname: params[:producname])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+  # pass unique product
+  def product_uniquess
+    @product = Product.find_by(producname: params[:producname])
 
-    end
-    # pass product collar
-    def product_collar
-      @product = Product.where(type_product_id: params[:type_product_id])
-    end
+  end
+  # pass product collar
+  def product_collar
+    @product = Product.where(type_product_id: params[:type_product_id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def product_params
-      params.permit(:producname, :type_product_id, :price, :description, :quantiyy, :image)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def product_params
+    params.permit(:producname, :type_product_id, :price, :description, :quantiyy, :image)
+  end
 end
