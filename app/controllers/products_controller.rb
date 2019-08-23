@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   #skip_load_and_authorize_resource :only => [:index, :show, :update, :destroy, :create]
   before_action :product_uniquess, only: [:show_uniquess]
   before_action :product_collar, only: [:show_typec]
+  before_action :product_collar_t, only: [:show_typec]
 
   # GET /products
   def index
@@ -71,7 +72,7 @@ class ProductsController < ApplicationController
     @product = Product.find_by(type_product_id: params[:type_product_id], id: params[:id])
   end
 
-  def product_collar
+  def product_collar_t
     @product = Product.where(type_product_id: params[:type_product_id])
   end
 
