@@ -68,7 +68,7 @@ class ProductsController < ApplicationController
   end
   # pass product collar
   def product_collar
-    @product = Product.where(type_product_id: params[:type_product_id], id: params[:id])
+    @product = Product.find_by(type_product_id: params[:type_product_id], id: params[:id])
   end
 
   def product_collar
