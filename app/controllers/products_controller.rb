@@ -2,8 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
   #skip_load_and_authorize_resource :only => [:index, :show, :update, :destroy, :create]
   before_action :product_uniquess, only: [:show_uniquess]
-  before_action :product_collar, only: [:show_typec]
-  before_action :product_collar_t, only: [:show_typec]
+
 
   # GET /products
   def index
@@ -25,7 +24,12 @@ class ProductsController < ApplicationController
   end
      #pass type producto collar
 
-  def show_typec
+  def show_typec 
+    if params[:type_product_id].present? && params[:id].present?
+      product_collar
+    elsif params[:type_product_id].present? && !params[:id].present?
+      product_collar_t
+    end
     render json: @product
   end
 
