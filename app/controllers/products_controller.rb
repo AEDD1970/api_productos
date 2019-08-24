@@ -25,9 +25,9 @@ class ProductsController < ApplicationController
      #pass type producto collar
 
   def show_typec 
-    if params[:type_product_id].present? && params[:id].present?
+    if params[:id].present?
       product_collar
-    elsif params[:type_product_id].present? && !params[:id].present?
+    elsif params[:type_product_id].present?
       product_collar_t
     end
     render json: @product
