@@ -28,7 +28,6 @@ class ProductsController < ApplicationController
     if params[:type_product_id].present?
       product_collar_t
     else
-     
     end
     render json: @product
   end
