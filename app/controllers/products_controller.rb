@@ -25,10 +25,10 @@ class ProductsController < ApplicationController
      #pass type producto collar
 
   def show_typec 
-    if params[:id].present?
-      product_collar
-    elsif params[:type_product_id].present? && !params[:id].present?
+    if params[:type_product_id].present?
       product_collar_t
+    else
+     
     end
     render json: @product
   end
@@ -68,14 +68,10 @@ class ProductsController < ApplicationController
   end
   # pass unique product
   def product_uniquess
-    @product = Product.find_by(producname: params[:producname])
-
-  end
-  # pass product collar
-  def product_collar
     @product = Product.find_by(id: params[:id])
-  end
 
+  end
+  # pass product collar/pulsera/anillo
   def product_collar_t
     @product = Product.where(type_product_id: params[:type_product_id])
   end
