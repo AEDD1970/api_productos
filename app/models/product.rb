@@ -2,11 +2,11 @@ class Product < ApplicationRecord
     
      belongs_to :type_product
   
-    mount_base64_uploader  :image, ImageUploader
+    validates :image, presence: true
     validates :producname, presence:true
     validates :producname, uniqueness:true
     
-    validates_processing_of :image
+   
     validate :image_size_validation
      
     private
