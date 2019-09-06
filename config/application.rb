@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 require_relative 'boot'
 
 require "rails"
@@ -21,9 +21,7 @@ require 'sprockets/railtie'
 Bundler.require(*Rails.groups)
 
 module APIPrueba
-=======
-module ApiProductos
->>>>>>> c0eba3053bfa0290a3f18b140bccacf1910031fd
+
   class Application < Rails::Application
     # ...
     
@@ -38,16 +36,12 @@ module ApiProductos
 
     # Rails 3/4
 
-    config.middleware.insert_before 0, "Rack::Cors" do
+    config.middleware.use Rack::Cors do
       allow do
         origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :options]
+        resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :options]
       end
     end
   end
-<<<<<<< HEAD
 end
 
-=======
-end
->>>>>>> c0eba3053bfa0290a3f18b140bccacf1910031fd
