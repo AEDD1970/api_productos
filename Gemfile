@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-
+gem 'cancancan'
 #images of 64.base
 gem 'carrierwave-base64'
 #gem carrierwave (imagenes)
