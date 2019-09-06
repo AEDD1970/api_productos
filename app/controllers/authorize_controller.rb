@@ -1,10 +1,11 @@
 class AuthorizeController < ApplicationController
   include ActionController::MimeResponds
- 
+  authorize_resource class: false
+
 
   unless Rails.env.development?
     before_action :authenticate_user!
-    load_and_authorize_resource
+    #load_and_authorize_resource
     rescue_from CanCan::AccessDenied do |exception|
       result = {
           :permission => false,
